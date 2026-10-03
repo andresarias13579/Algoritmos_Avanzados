@@ -60,13 +60,21 @@ int main() {
         {5,2,4,0,3},
         {0,6,7,3,0}
     };
-    vector<Ciudad> visitados(5,{false,false});
+    vector<vector<int>> rutas2{
+        {0, 4, 8, 5, 0, 0},
+        {4, 0, 3, 2, 6, 0},
+        {8, 3, 0, 4, 7, 0},
+        {5, 2, 4, 0, 3, 4},
+        {0, 6, 7, 3, 0, 9},
+        {0, 0, 0, 4, 9, 0}
+    };
+    vector<Ciudad> visitados(rutas2.size(),{false,false});
     visitados[0].tieneGrifo = true;
     visitados[2].tieneGrifo = true;
 
-    int gasolina = 10, inicio = 0, fin = 4;
+    int gasolina = 10, inicio = 0, fin = 5;
 
-    ordenar(rutas,visitados,gasolina,inicio,fin);
+    ordenar(rutas2,visitados,gasolina,inicio,fin);
 
     return 0;
 }
